@@ -1,5 +1,6 @@
 #!/bin/sh
 
+## system infomration tool
 ## created by kyli0x
 ## https://kyli0x.pw
 
