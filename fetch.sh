@@ -31,11 +31,20 @@ id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
 id=${id##* }
 wm=$(xprop -id "$id" -notype -len 100 -f _NET_WM_NAME 8t |grep '^_NET_WM_NAME' |cut -d\" -f 2)
 
+## memory
+mem=$(free -m |awk 'FNR==2 {print $6"M/"$2"M"}')
+
+## cpu
+cpu=$(grep -Po 'model name.*: \K.*' /proc/cpuinfo | uniq | sed -E 's/\([^)]+\)//g')
+
+## gpu
+gpu=$(lspci |grep -i vga |cut -d' ' -f5-9)
+
 ## output
 clear
 
 	printf '%s\n' "
- ${cyan}  kyli0x's system info tool
+ ${cyan}            kyfetch
  ${white}         [kyli0x.pw]
 
  ${bwhite} host${reset}   :: ${HOST}
@@ -44,6 +53,9 @@ clear
  ${bwhite} uptime${reset} :: ${uptime}
  ${bwhite} pkgs${reset}   :: ${pkg_total}
  ${bwhite} wm${reset}     :: dwm
+ ${bwhite} mem${reset}    :: ${mem}
+ ${bwhite} cpu${reset}    :: ${cpu}
+ ${bwhite} gpu${reset}    :: ${gpu}
 "
 
 exit 0
