@@ -44,7 +44,7 @@ gpu=$(lspci |grep -i vga |cut -d' ' -f5-9)
 clear
 
 	printf '%s\n' "
- ${cyan}            kyfetch
+ ${cyan}           kyfetch
  ${white}         [kyli0x.pw]
 
  ${bwhite} host${reset}   :: ${HOST}

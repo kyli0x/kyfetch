@@ -1,3 +1,3 @@
-## fetch
-my minimal version of a system information fetching tool
-<p align="center"><img src="https://codeberg.org/kyli0x/fetch/raw/branch/main/img01.png"></p>
+## kyfetch
+<code><pre>my minimal version of a system information fetching tool
+<br><img src="https://codeberg.org/kyli0x/fetch/raw/branch/main/img01.png"></p>
