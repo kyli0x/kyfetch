@@ -32,7 +32,7 @@ id=${id##* }
 wm=$(xprop -id "$id" -notype -len 100 -f _NET_WM_NAME 8t |grep '^_NET_WM_NAME' |cut -d\" -f 2)
 
 ## memory
-mem=$(free -m |awk 'FNR==2 {print $6"M/"$2"M"}')
+mem=$(free -m |awk 'FNR==2 {print $6"MiB / "$2"MiB"}')
 
 ## cpu
 cpu=$(grep -Po 'model name.*: \K.*' /proc/cpuinfo | uniq | sed -E 's/\([^)]+\)//g')
@@ -53,9 +53,9 @@ clear
  ${bwhite} uptime${reset} :: ${uptime}
  ${bwhite} pkgs${reset}   :: ${pkg_total}
  ${bwhite} wm${reset}     :: dwm
- ${bwhite} mem${reset}    :: ${mem}
- ${bwhite} cpu${reset}    :: ${cpu}
- ${bwhite} gpu${reset}    :: ${gpu}
+ ${bwhite} cpu${reset}    :: ${cpu}
+ ${bwhite} gpu${reset}    :: ${gpu}
+ ${bwhite} mem${reset}    :: ${mem}
 "
 
 exit 0
