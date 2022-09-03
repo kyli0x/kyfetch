@@ -26,7 +26,7 @@ uptime=$(uptime -p |cut -d' ' -f2-)
 ## packages 
 pkg_total=$(pacman -Q |wc -l)
 
-## wm detection > hardcoded dwm because wmname dwm inside .xinitrc isnt working
+## wm detection
 id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
 id=${id##* }
 wm=$(xprop -id "$id" -notype -len 100 -f _NET_WM_NAME 8t |grep '^_NET_WM_NAME' |cut -d\" -f 2)
@@ -52,7 +52,7 @@ clear
  ${bwhite} ver${reset}    :: ${kernel}
  ${bwhite} uptime${reset} :: ${uptime}
  ${bwhite} pkgs${reset}   :: ${pkg_total}
- ${bwhite} wm${reset}     :: dwm
+ ${bwhite} wm${reset}     :: ${wm}
  ${bwhite} cpu${reset}    :: ${cpu}
  ${bwhite} gpu${reset}    :: ${gpu}
  ${bwhite} mem${reset}    :: ${mem}
